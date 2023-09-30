@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>User IP GET TEST</title>
+	
+	<style>
+	h1 {
+		color: green;
+	}
+	</style>
+	<script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+	</script>
+	
+	<script>
+	$.get("https://ipinfo.io", function(response) {
+			<!-- alert(response.ip); -->
+            console.log(response)
+            document.getElementById("option").innerText=response.ip;
+            document.getElementById("option1").innerText=response.city + "&" + response.country;
+		}, "json")
+	</script>
+</head>
+
+<body>
+	<center>
+		<h1>IP Checker</h1>
+		<h3>Your ip is</h3>
+        <h3 id="option"></h3>
+        <h3>Your location & region</h3>
+        <h3 id="option1"></h3>
+        <button onclick="location.href='subpage.html'">테스트 페이지로 이동</button>
+	</center>
+</body>
+
+</html>

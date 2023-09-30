@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>User IP GET TEST</title>
+	
+	<style>
+	h1 {
+		color: green;
+	}
+	</style>
+	<script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+	</script>
+	
+	<script>
+    function checker(country){
+        console.log(country)
+        if(country == "KR"){
+            document.getElementById("cct").innerHTML = `<div>안녕!<div>`
+        }else if(country == "US"){
+            document.getElementById("cct").innerHTML = `<div>Hello!</div>`
+        }else if(country == "CA"){
+            document.getElementById("cct").innerHTML = `<div>Hola!!</div>`
+        }
+    }
+	$.get("https://ipinfo.io", function(response) {
+			<!-- alert(response.ip); -->
+            console.log(response)
+            document.getElementById("country").innerText=response.country;
+            checker(response.country);
+		}, "json")
+	</script>
+</head>
+
+<body>
+	<center>
+		<h1>Language Change Test</h1>
+        <h4 id="country"></h4>
+        <h4 id="cct">안녕하세요</h4>
+</body>
+
+</html>
